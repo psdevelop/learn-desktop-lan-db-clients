@@ -1,0 +1,316 @@
+unit DBConnection;
+
+interface
+
+uses
+  SysUtils, Classes, DB, IBDatabase, IBCustomDataSet, IBTable, ADODB, ImgList,
+  Controls, ActnList, DBActns, Dialogs, ADOInt;
+
+type
+  TConnectionDM = class(TDataModule)
+    BOATDB_ADOC: TADOConnection;
+    PersTypesADOT: TADOTable;
+    PersTypesDS: TDataSource;
+    PersonsDS: TDataSource;
+    PersTypesDictADOT: TADOTable;
+    PersonsADODS: TADODataSet;
+    PersonOrdersDS: TDataSource;
+    PersonsADODSPERSON_ID: TIntegerField;
+    PersonsADODSNAME: TStringField;
+    PersonsADODSFAMILY: TStringField;
+    PersonsADODSSURNAME: TStringField;
+    PersonsADODSPERSON_TYPE_ID: TIntegerField;
+    PersonsADODSPHONES: TStringField;
+    PersonsADODSEMAIL: TStringField;
+    PersonsADODSADRESS: TStringField;
+    PersonsADODSDESCRIPTION: TStringField;
+    PersonsADODSPERS_TYPE_LOOK: TStringField;
+    BOATDBActionList: TActionList;
+    BOATDBImageList: TImageList;
+    PersonTypeDSI: TDataSetInsert;
+    PersonTypeDSD: TDataSetDelete;
+    PersonDSI: TDataSetInsert;
+    PersonDSD: TDataSetDelete;
+    BoatsADODS: TADODataSet;
+    BoatsDictsADODS: TADODataSet;
+    BoatTypesADOT: TADOTable;
+    BTypesDictADOT: TADOTable;
+    LocationsADOT: TADOTable;
+    LocDictADOT: TADOTable;
+    BoatDSI: TDataSetInsert;
+    BoatTypeDSI: TDataSetInsert;
+    LocationDSI: TDataSetInsert;
+    BoatDSD: TDataSetDelete;
+    BoatTypeDSD: TDataSetDelete;
+    LocationDSD: TDataSetDelete;
+    BoatsDS: TDataSource;
+    BoatTypesDS: TDataSource;
+    LocationsDS: TDataSource;
+    MansADOT: TADOTable;
+    ManDictADODS: TADODataSet;
+    MansDS: TDataSource;
+    MansDSI: TDataSetInsert;
+    MansDSD: TDataSetDelete;
+    BoatsADODSBOAT_ID: TIntegerField;
+    BoatsADODSBOAT_NAME: TStringField;
+    BoatsADODSBOAT_TYPE_ID: TIntegerField;
+    BoatsADODSLOCATION_ID: TIntegerField;
+    BoatsADODSREG_NUMBER: TStringField;
+    PersTypesADOTPERSON_TYPE_ID: TIntegerField;
+    PersTypesADOTPERSON_TYPE_NAME: TStringField;
+    BoatsADODSBOAT_TYPE_LOOK: TStringField;
+    BoatsADODSBOAT_LOC_ID: TStringField;
+    MansADOTMANAGER_ID: TIntegerField;
+    MansADOTMAN_NAME: TStringField;
+    MansADOTMAN_FAMILY: TStringField;
+    MansADOTMAN_SURNAME: TStringField;
+    MansADOTWPLACE_NAME: TStringField;
+    MansADOTBOAT_ID: TIntegerField;
+    MansADOTCOME_DATE: TDateTimeField;
+    MansADOTMAN_BOAT_LOOK: TStringField;
+    OrdersADODS: TADODataSet;
+    IntegerField1: TIntegerField;
+    StringField1: TStringField;
+    DateTimeField1: TDateTimeField;
+    DateTimeField2: TDateTimeField;
+    IntegerField2: TIntegerField;
+    DateTimeField3: TDateTimeField;
+    FloatField1: TFloatField;
+    IntegerField3: TIntegerField;
+    IntegerField4: TIntegerField;
+    StringField2: TStringField;
+    DateField1: TDateField;
+    StringField3: TStringField;
+    StringField4: TStringField;
+    FloatField2: TFloatField;
+    SmallintField1: TSmallintField;
+    FloatField3: TFloatField;
+    IntegerField5: TIntegerField;
+    StringField5: TStringField;
+    OrdersDS: TDataSource;
+    OrderUItemsDS: TDataSource;
+    OrderWorksDS: TDataSource;
+    OrderUItemsADODS: TADODataSet;
+    OrderWorksADODS: TADODataSet;
+    OrdersDSI: TDataSetInsert;
+    OrderUItemsDSI: TDataSetInsert;
+    OrderWorksDSI: TDataSetInsert;
+    OrdersDSD: TDataSetDelete;
+    OrderUItemsDSD: TDataSetDelete;
+    OrderWorksDSD: TDataSetDelete;
+    PersonOrdersDSI: TDataSetInsert;
+    OrderUItemsADODSORDER_ITEM_ID: TIntegerField;
+    OrderUItemsADODSORDER_ID: TIntegerField;
+    OrderUItemsADODSORDER_ITEM_NAME: TStringField;
+    OrderUItemsADODSLOCATION_ID: TIntegerField;
+    OrderUItemsADODSORDER_ITEM_ADRESS: TStringField;
+    OrderUItemsADODSTIME_DISTANCE: TFloatField;
+    OrderUItemsADODSPRICE: TFloatField;
+    OrderUItemsADODSSUMM: TFloatField;
+    OrderUItemsADODSCOMPLETE: TSmallintField;
+    OrderUItemsADODSORDER_ITEM_START: TDateTimeField;
+    OrderUItemsADODSORDER_ITEM_END: TDateTimeField;
+    OrderUItemsADODSBOAT_ID: TIntegerField;
+    OrderUItemsADODSBOAT_LOOK: TStringField;
+    OrderUItemsADODSLOC_LOOK: TStringField;
+    PersonDictADODS: TADODataSet;
+    OrdersADODSPERSON_LOOK: TStringField;
+    BoatsADODSBOAT_IMAGE: TBlobField;
+    BoatsADODSPLACES_COUNT: TIntegerField;
+    BoatsADODSSTAGE_COUNT: TSmallintField;
+    BoatsADODSBOAT_DESCRIPTION: TStringField;
+    OrderItemsDSP: TDataSetPost;
+    OrderWorksDSP: TDataSetPost;
+    PersonOrdersADOT: TADODataSet;
+    PersonOrdersADOTORDER_ID: TIntegerField;
+    PersonOrdersADOTORDER_NAME: TStringField;
+    PersonOrdersADOTORDER_START: TDateTimeField;
+    PersonOrdersADOTORDER_END: TDateTimeField;
+    PersonOrdersADOTPERSON_ID: TIntegerField;
+    PersonOrdersADOTORDER_ADD_DATE: TDateTimeField;
+    PersonOrdersADOTSUMM: TFloatField;
+    PersonOrdersADOTITEMS_COUNT: TIntegerField;
+    PersonOrdersADOTORDERS_TYPE_ID: TIntegerField;
+    PersonOrdersADOTDOC_NO: TStringField;
+    PersonOrdersADOTDOC_DATE: TDateField;
+    PersonOrdersADOTRTYPE_NAME: TStringField;
+    PersonOrdersADOTCUSTOMER_NAME: TStringField;
+    PersonOrdersADOTWORK_SUMM: TFloatField;
+    PersonOrdersADOTCOMPLETE: TSmallintField;
+    PersonOrdersADOTUSAGE_SUMM: TFloatField;
+    PersonOrdersADOTMANAGER_ID: TIntegerField;
+    PersonOrdersADOTORD_MAN_LOOK: TStringField;
+    procedure OrderUItemsADODSAfterPost(DataSet: TDataSet);
+    procedure OrderWorksADODSAfterPost(DataSet: TDataSet);
+    procedure DataModuleCreate(Sender: TObject);
+    procedure BOATDB_ADOCAfterConnect(Sender: TObject);
+    procedure ReloadBoatsTypes;
+    procedure ReloadLocations;
+    procedure ReloadClientOrders;
+    procedure ReloadOrderItems;
+    procedure ReloadOrderworks;
+    procedure ReloadClientTypes;
+    procedure ReloadMans;
+    procedure PersonsADODSAfterPost(DataSet: TDataSet);
+    procedure PersonOrdersADOTAfterPost(DataSet: TDataSet);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    procedure ReloadCurrentOrder;
+    procedure ReloadCurrentClient;
+  end;
+
+var
+  ConnectionDM: TConnectionDM;
+  CDP: Widestring;
+
+implementation
+
+{$R *.dfm}
+
+uses MainUnit;
+
+procedure TConnectionDM.ReloadBoatsTypes;
+begin
+  try
+    Self.BoatTypesADOT.Active:=False;
+    Self.BoatTypesADOT.Active:=True;
+  except on E: Exception do
+    ShowMessage('Ошибка перезагрузки таблицы типов судов! Описание: '+E.Message);
+  end;
+end;
+
+procedure TConnectionDM.ReloadLocations;
+begin
+  try
+    Self.LocationsADOT.Active:=False;
+    Self.LocationsADOT.Active:=True;
+  except on E: Exception do
+    ShowMessage('Ошибка перезагрузки таблицы стоянок! Описание: '+E.Message);
+  end;
+end;
+
+procedure TConnectionDM.ReloadClientOrders;
+begin
+  try
+    Self.PersonOrdersADOT.Active:=False;
+    Self.PersonOrdersADOT.Active:=True;
+  except on E: Exception do
+    ShowMessage('Ошибка перезагрузки таблицы заказов клиента! Описание: '+E.Message);
+  end;
+end;
+
+procedure TConnectionDM.ReloadOrderItems;
+begin
+  try
+    Self.OrderUItemsADODS.Active:=False;
+    Self.OrderUItemsADODS.Active:=True;
+  except on E: Exception do
+    ShowMessage('Ошибка перезагрузки позиций проката заказа! Описание: '+E.Message);
+  end;
+end;
+
+procedure TConnectionDM.ReloadOrderworks;
+begin
+  try
+    Self.OrderWorksADODS.Active:=False;
+    Self.OrderWorksADODS.Active:=True;
+  except on E: Exception do
+    ShowMessage('Ошибка перезагрузки таблицы работ заказа! Описание: '+E.Message);
+  end;
+end;
+
+procedure TConnectionDM.ReloadClientTypes;
+begin
+  try
+    Self.PersTypesADOT.Active:=False;
+    Self.PersTypesADOT.Active:=True;
+  except on E: Exception do
+    ShowMessage('Ошибка перезагрузки таблицы типов клиентов! Описание: '+E.Message);
+  end;
+end;
+
+procedure TConnectionDM.ReloadMans;
+begin
+  try
+    Self.MansADOT.Active:=False;
+    Self.MansADOT.Active:=True;
+  except on E: Exception do
+    ShowMessage('Ошибка перезагрузки таблицы сотрудников! Описание: '+E.Message);
+  end;
+end;
+
+procedure TConnectionDM.BOATDB_ADOCAfterConnect(Sender: TObject);
+begin
+  MainForm.ReloadBoatTypesDict;
+  MainForm.ReloadLocationsDict;
+  MainForm.ReloadClientTypeDict;
+  MainForm.ReloadManagersDict;
+  Self.ReloadBoatsTypes;
+  Self.ReloadLocations;
+  Self.ReloadClientOrders;
+  Self.ReloadOrderItems;
+  Self.ReloadOrderworks;
+  Self.ReloadMans;
+  Self.ReloadClientTypes;
+  MainForm.ReloadBoats;
+  MainForm.ReloadClients;
+  MainForm.ReloadOrders;
+end;
+
+procedure TConnectionDM.DataModuleCreate(Sender: TObject);
+begin
+  CDP:=GetCurrentDir;
+  BOATDB_ADOC.Connected:=False;
+  BOATDB_ADOC.ConnectionString:='FILE NAME='+CDP+'\BOAT_ACC.udl';
+  BOATDB_ADOC.Connected:=True;
+end;
+
+procedure TConnectionDM.OrderUItemsADODSAfterPost(DataSet: TDataSet);
+begin
+  Self.ReloadOrderItems;
+  ConnectionDM.ReloadCurrentOrder;
+end;
+
+procedure TConnectionDM.OrderWorksADODSAfterPost(DataSet: TDataSet);
+begin
+  Self.ReloadOrderworks;
+  ConnectionDM.ReloadCurrentOrder;
+end;
+
+procedure TConnectionDM.PersonOrdersADOTAfterPost(DataSet: TDataSet);
+begin
+  ReloadClientOrders;
+end;
+
+procedure TConnectionDM.PersonsADODSAfterPost(DataSet: TDataSet);
+begin
+  MainForm.ReloadClients;
+end;
+
+procedure TConnectionDM.ReloadCurrentOrder;
+begin
+  try
+     Self.OrdersADODS.UpdateCursorPos;
+     OrdersADODS.Recordset.Resync(adAffectCurrent, adResyncAllValues);
+     OrdersADODS.Resync([rmExact]);
+     //OrdersADODS.Refresh;
+  except on E:Exception do
+     ShowMessage('Ошибка обновления таблицы ЗАКАЗОВ ТЕКУЩАЯ ЗАПИСЬ! Описание: '+E.Message);
+  end;
+end;
+
+procedure TConnectionDM.ReloadCurrentClient;
+begin
+  try
+     Self.PersonsADODS.UpdateCursorPos;
+     PersonsADODS.Recordset.Resync(adAffectCurrent, adResyncAllValues);
+     PersonsADODS.Resync([rmExact]);
+     //OrdersADODS.Refresh;
+  except on E:Exception do
+     ShowMessage('Ошибка обновления таблицы КЛИЕНТОВ ТЕКУЩАЯ ЗАПИСЬ! Описание: '+E.Message);
+  end;
+end;
+
+end.

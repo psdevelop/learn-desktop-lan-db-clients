@@ -1,0 +1,30 @@
+unit ReportDM;
+
+interface
+
+uses
+  SysUtils, Classes, RpDefine, RpBase, RpSystem, RpRave, frxClass, frxDesgn;
+
+type
+  TReportDMod = class(TDataModule)
+    BOATfrxDesigner: TfrxDesigner;
+    OrdersInIntervalfrxReport: TfrxReport;
+    ClientOrdersfrxReport: TfrxReport;
+    BoatWorksfrxReport: TfrxReport;
+    ManagerWorksfrxReport: TfrxReport;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  ReportDMod: TReportDMod;
+
+implementation
+
+{$R *.dfm}
+
+uses DBConnection;
+
+end.

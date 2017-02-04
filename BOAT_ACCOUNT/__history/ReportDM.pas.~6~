@@ -1,0 +1,23 @@
+unit ReportDM;
+
+interface
+
+uses
+  SysUtils, Classes, RpDefine, RpBase, RpSystem, RpRave;
+
+type
+  TReportDMod = class(TDataModule)
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  ReportDMod: TReportDMod;
+
+implementation
+
+{$R *.dfm}
+
+end.

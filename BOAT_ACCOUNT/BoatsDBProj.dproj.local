@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2014.04.27 02:16:37.936.pas,C:\Users\ADMIN\Documents\RAD Studio\Projects\Unit1.pas=C:\Users\ADMIN\Documents\DEVELOP\YACHTACCOUNT\MainUnit.pas</Transaction>
+    <Transaction>2014.04.27 02:16:37.937.dfm,C:\Users\ADMIN\Documents\RAD Studio\Projects\Unit1.dfm=C:\Users\ADMIN\Documents\DEVELOP\YACHTACCOUNT\MainUnit.dfm</Transaction>
+    <Transaction>2014.04.27 02:16:57.583.dproj,C:\Users\ADMIN\Documents\RAD Studio\Projects\Project1.dproj=C:\Users\ADMIN\Documents\DEVELOP\YACHTACCOUNT\YachtProj.dproj</Transaction>
+    <Transaction>2014.04.27 04:38:31.598.dproj,C:\Users\ADMIN\Documents\DEVELOP\BOAT_ACCOUNT\YachtProj.dproj=C:\Users\ADMIN\Documents\DEVELOP\BOAT_ACCOUNT\BoatsDBProj.dproj</Transaction>
+    <Transaction>2014.04.30 17:30:23.506.pas,C:\Users\ADMIN\Documents\DEVELOP\BOAT_ACCOUNT\Unit1.pas=C:\Users\ADMIN\Documents\DEVELOP\BOAT_ACCOUNT\DBConnection.pas</Transaction>
+    <Transaction>2014.04.30 17:30:23.506.dfm,C:\Users\ADMIN\Documents\DEVELOP\BOAT_ACCOUNT\Unit1.dfm=C:\Users\ADMIN\Documents\DEVELOP\BOAT_ACCOUNT\DBConnection.dfm</Transaction>
+    <Transaction>2014.05.11 17:16:57.274.pas,C:\Users\ADMIN\Documents\DEVELOP\BOAT_ACCOUNT\Unit1.pas=C:\Users\ADMIN\Documents\DEVELOP\BOAT_ACCOUNT\ReportDM.pas</Transaction>
+    <Transaction>2014.05.11 17:16:57.274.dfm,C:\Users\ADMIN\Documents\DEVELOP\BOAT_ACCOUNT\Unit1.dfm=C:\Users\ADMIN\Documents\DEVELOP\BOAT_ACCOUNT\ReportDM.dfm</Transaction>
+  </Transactions>
+</BorlandProject>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<TfrxReport Version="4.12" DotMatrixReport="False" IniFile="\Software\Fast Reports" PreviewOptions.Buttons="4095" PreviewOptions.Zoom="1" PrintOptions.Printer="Padrão" PrintOptions.PrintOnSheet="0" ReportOptions.CreateDate="41770,8025619907" ReportOptions.Description.Text="" ReportOptions.LastChange="41771,019848912" ScriptLanguage="PascalScript" ScriptText.Text="procedure Label1OnClick(Sender: TfrxComponent);&#13;&#10;begin&#13;&#10;&#13;&#10;end;&#13;&#10;&#13;&#10;begin&#13;&#10;&#13;&#10;end." PropData="044C656674025003546F7003B0000844617461736574730100095661726961626C65730100055374796C650100">
+  <TfrxDataPage Name="Data" Height="1000" Left="0" Top="0" Width="1000"/>
+  <TfrxReportPage Name="Page1" PaperWidth="210" PaperHeight="297" PaperSize="9" LeftMargin="10" RightMargin="10" TopMargin="10" BottomMargin="10" ColumnWidth="0" ColumnPositions.Text="" HGuides.Text="" VGuides.Text=""/>
+  <TfrxDialogPage Name="DialogPage1" Font.Charset="1" Font.Color="-16777208" Font.Height="-13" Font.Name="Arial" Font.Style="0" Caption="Эксплуатация судна" Height="299" ClientHeight="255" Left="430" Top="150" Width="412" ClientWidth="396">
+    <TfrxDBLookupComboBox Name="DBLookupComboBox1" Left="56" Top="80" Width="285" Height="21" ShowHint="True" DropDownWidth="0" DropDownRows="7"/>
+    <TfrxLabelControl Name="Label1" Left="56" Top="52" Width="140" Height="16" ShowHint="True" Caption="Транспортное средство" Color="-16777201" OnClick="Label1OnClick"/>
+    <TfrxButtonControl Name="Button1" Left="100" Top="148" Width="99" Height="25" ShowHint="True" Caption="OK" ModalResult="1"/>
+    <TfrxButtonControl Name="Button2" Left="208" Top="148" Width="95" Height="25" ShowHint="True" Caption="Отмена" ModalResult="2"/>
+  </TfrxDialogPage>
+</TfrxReport>
